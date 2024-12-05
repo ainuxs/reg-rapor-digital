@@ -75,8 +75,6 @@
           </div>
           <div class="modal-body">
             <div class="container mt-3 mb-3">
-              <center><h3>Registrasi Rapor Digital</h3></center>
-              <hr />
               <form id="registrationForm">
                 <div class="row">
                   <div class="col-md-6">
@@ -87,7 +85,7 @@
                         class="form-control"
                         id="npsn"
                         name="npsn"
-                        value="20325338"
+                        required
                       />
                     </div>
                     <div class="mb-3">
@@ -97,7 +95,7 @@
                         class="form-control"
                         id="nss"
                         name="nss"
-                        value="201032811046"
+                        required
                       />
                     </div>
                     <div class="mb-3">
@@ -109,7 +107,7 @@
                         class="form-control"
                         id="namaSekolah"
                         name="namaSekolah"
-                        value="SMP Negeri 3 Adiwerna"
+                        required
                       />
                     </div>
                     <div class="mb-3">
@@ -121,7 +119,7 @@
                           name="status"
                           id="negeri"
                           value="Negeri"
-                          checked
+                          required
                         />
                         <label class="form-check-label" for="negeri"
                           >Negeri</label
@@ -132,8 +130,9 @@
                           class="form-check-input"
                           type="radio"
                           name="status"
-                          id="swasta"
                           value="Swasta"
+                          id="swasta"
+                          required
                         />
                         <label class="form-check-label" for="swasta"
                           >Swasta</label
@@ -147,7 +146,7 @@
                         class="form-control"
                         id="website"
                         name="website"
-                        value="https://www.smpn3adiwernategal.com"
+                        required
                       />
                     </div>
                     <div class="mb-3">
@@ -157,21 +156,22 @@
                         class="form-control"
                         id="email"
                         name="email"
-                        value="smp3_adiwerna@yahoo.co.id"
+                        required
                       />
                     </div>
-                  </div>
-                  <div class="col-md-6">
                     <div class="mb-3">
-                      <label for="alamat" class="form-label">ALAMAT</label>
-                      <input
-                        type="text"
+                      <label for="alamat" class="form-label"
+                        >ALAMAT SEKOLAH</label
+                      >
+                      <textarea
                         class="form-control"
                         id="alamat"
                         name="alamat"
-                        value="Jl. Raya Barat Ujunggrusi"
-                      />
+                        required
+                      ></textarea>
                     </div>
+                  </div>
+                  <div class="col-md-6">
                     <div class="mb-3">
                       <label for="desaKelurahan" class="form-label"
                         >DESA/KELURAHAN</label
@@ -181,8 +181,9 @@
                         class="form-control"
                         id="desaKelurahan"
                         name="desaKelurahan"
-                        value="Desa Ujunggrusi"
+                        required
                       />
+                      <small>Desa Adiwerna</small>
                     </div>
                     <div class="mb-3">
                       <label for="kecamatan" class="form-label"
@@ -193,7 +194,7 @@
                         class="form-control"
                         id="kecamatan"
                         name="kecamatan"
-                        value="Adiwerna"
+                        required
                       />
                     </div>
                     <div class="mb-3">
@@ -205,28 +206,32 @@
                         class="form-control"
                         id="kabupaten"
                         name="kabupaten"
-                        value="Kabupaten Tegal"
+                        required
                       />
+                      <small>Kabupaten Tegal</small>
                     </div>
                     <div class="mb-3">
-                      <label for="namaks" class="form-label">NAMAKS</label>
+                      <label for="namaks" class="form-label"
+                        >KEPALA SEKOLAH</label
+                      >
                       <input
                         type="text"
                         class="form-control"
                         id="namaks"
                         name="namaks"
-                        value="Marwan, S.Pd., M.MPd."
+                        required
                       />
                     </div>
                     <div class="mb-3">
-                      <label for="nipks" class="form-label">NIPKS</label>
+                      <label for="nipks" class="form-label">NIP</label>
                       <input
                         type="text"
                         class="form-control"
                         id="nipks"
                         name="nipks"
-                        value="19660804 198803 1 008"
+                        required
                       />
+                      <small>format : xxxxxxxx xxxxxx x xxx</small>
                     </div>
                     <div class="mb-3">
                       <input
@@ -234,10 +239,8 @@
                         class="form-control"
                         id="datetime"
                         name="datetime"
-                        value=""
                       />
                     </div>
-
                     <script>
                       document.addEventListener(
                         "DOMContentLoaded",
@@ -263,7 +266,6 @@
                     </script>
                   </div>
                 </div>
-
                 <button
                   type="submit"
                   class="btn btn-primary"
@@ -273,25 +275,6 @@
                 </button>
               </form>
             </div>
-
-            <script>
-              document
-                .getElementById("registrationForm")
-                .addEventListener("submit", function (e) {
-                  e.preventDefault();
-                  var formData = new FormData(this);
-                  fetch(
-                    "https://script.google.com/macros/s/AKfycbynsr0DbP95ntDVbq_2UJYH4BfGXxy4uPKwXJGINLOnnCto3_fP58DSRHy_G1I5jhCHew/exec",
-                    {
-                      method: "POST",
-                      body: formData,
-                    }
-                  )
-                    .then((response) => response.text())
-                    .then((data) => alert(data))
-                    .catch((error) => console.error("Error:", error));
-                });
-            </script>
           </div>
         </div>
       </div>
@@ -309,15 +292,24 @@
           e.preventDefault();
           var formData = new FormData(this);
           fetch(
-            "https://script.google.com/macros/s/AKfycbynsr0DbP95ntDVbq_2UJYH4BfGXxy4uPKwXJGINLOnnCto3_fP58DSRHy_G1I5jhCHew /exec",
+            "https://script.google.com/macros/s/AKfycbynsr0DbP95ntDVbq_2UJYH4BfGXxy4uPKwXJGINLOnnCto3_fP58DSRHy_G1I5jhCHew/exec",
             {
               method: "POST",
               body: formData,
             }
           )
             .then((response) => response.text())
-            .then((data) => alert(data))
-            .catch((error) => console.error("Error:", error));
+            .then((data) => {
+              alert(data); // Tampilkan pesan respons
+              if (data.toLowerCase().includes("berhasil")) {
+                // Jika respons mengandung kata "berhasil", lakukan refresh
+                location.reload();
+              }
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+              alert("Terjadi kesalahan, silakan coba lagi.");
+            });
         });
     </script>
   </body>
